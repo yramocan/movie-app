@@ -3,6 +3,8 @@
 //  MovieApp
 //
 
+import Foundation
+
 protocol MoviesViewModelDelegate: AnyObject {
     func didEncounterError(_ error: Error)
     func didRetrieveMovies()
@@ -19,8 +21,8 @@ final class MoviesViewModel {
         self.movieService = movieService
     }
 
-    func getNowPlaying() {
-        movieService.getNowPlaying { [weak self] result in
+    func getMovies(type: MovieListType) {
+        movieService.getMovies(type: type) { [weak self] result in
             switch result {
             case .success(let movies):
                 self?.movies = movies
@@ -29,5 +31,9 @@ final class MoviesViewModel {
                 self?.delegate?.didEncounterError(error)
             }
         }
+    }
+
+    func imageURL(for posterPath: String) -> URL? {
+        return movieService.imageURL(for: posterPath)
     }
 }
