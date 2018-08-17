@@ -23,7 +23,7 @@ final class MoviesViewController: UIViewController {
 
         registerNibs()
 
-        configureHeaderView()
+        configureHeaderView(with: .moviePurpleColor)
 
         setUpMoviesTableView()
         setUpMovieCategoryTabBar()
@@ -31,15 +31,17 @@ final class MoviesViewController: UIViewController {
         viewModel.getMovies(type: .nowPlaying)
     }
 
-    private func configureHeaders(with headerText: String, and subHeaderText: String) {
+    private func configureHeaderLabels(with headerText: String, and subHeaderText: String) {
         DispatchQueue.main.async { [unowned self] in
             self.headerTextLabel.text = headerText
             self.subHeaderTextLabel.text = subHeaderText
         }
     }
 
-    private func configureHeaderView() {
-        headerView.layer.addBorder(edge: .bottom, color: .purpleColor, thickness: 8.0)
+    private func configureHeaderView(with borderColor: UIColor) {
+        DispatchQueue.main.async { [unowned self] in
+            self.headerView.layer.addBorder(edge: .bottom, color: borderColor, thickness: 8.0)
+        }
     }
 
     private func reloadMovies() {
@@ -97,16 +99,20 @@ extension MoviesViewController: UITabBarDelegate {
 
         switch tabBarItemIndex {
         case 0:
-            configureHeaders(with: "Now Playing", and: "Current Flicks")
+            configureHeaderLabels(with: "Now Playing", and: "Current Flicks")
+            configureHeaderView(with: .moviePurpleColor)
             viewModel.getMovies(type: .nowPlaying)
         case 1:
-            configureHeaders(with: "Popular Movies", and: "In the Spotlight")
+            configureHeaderLabels(with: "Popular Movies", and: "In the Spotlight")
+            configureHeaderView(with: .movieRedColor)
             viewModel.getMovies(type: .popular)
         case 2:
-            configureHeaders(with: "Top Rated", and: "Critically Acclaimed")
+            configureHeaderLabels(with: "Top Rated", and: "Critically Acclaimed")
+            configureHeaderView(with: .movieGreenColor)
             viewModel.getMovies(type: .topRated)
         case 3:
-            configureHeaders(with: "Upcoming", and: "Hitting Theaters Soon")
+            configureHeaderLabels(with: "Upcoming", and: "Hitting Theaters Soon")
+            configureHeaderView(with: .movieOrangeColor)
             viewModel.getMovies(type: .upcoming)
         default:
             return
