@@ -3,6 +3,7 @@
 //  MovieApp
 //
 
+import SDWebImage
 import UIKit
 
 final class MoviesViewController: UIViewController {
@@ -129,9 +130,14 @@ extension MoviesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as! MovieTableViewCell
 
-        cell.movieTitleLabel.text = viewModel.movies[indexPath.row].title
-        cell.movieOverviewLabel.text = viewModel.movies[indexPath.row].overview
-//        cell.posterImageView
+        let movie = viewModel.movies[indexPath.row]
+
+        cell.movieTitleLabel.text = movie.title
+        cell.movieOverviewLabel.text = movie.overview
+
+        let imageURL = viewModel.imageURL(for: movie.posterPath ?? "")
+
+        cell.posterImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: "placeholder-image.png"))
 
         return cell
     }

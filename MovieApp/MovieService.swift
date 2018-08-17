@@ -55,6 +55,10 @@ final class MovieService {
             }
         }
     }
+
+    func imageURL(for posterPath: String) -> URL? {
+        return URL(string: "https://image.tmdb.org/t/p/w500" + posterPath)
+    }
 }
 
 enum MovieListType {

@@ -3,6 +3,8 @@
 //  MovieApp
 //
 
+import Foundation
+
 protocol MoviesViewModelDelegate: AnyObject {
     func didEncounterError(_ error: Error)
     func didRetrieveMovies()
@@ -29,5 +31,9 @@ final class MoviesViewModel {
                 self?.delegate?.didEncounterError(error)
             }
         }
+    }
+
+    func imageURL(for posterPath: String) -> URL? {
+        return movieService.imageURL(for: posterPath)
     }
 }
