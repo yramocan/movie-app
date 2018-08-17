@@ -23,19 +23,31 @@ final class MoviesViewController: UIViewController {
         setUpMoviesTableView()
         setUpMovieCategoryTabBar()
 
-        viewModel.getNowPlaying()
+        viewModel.getMovies(type: .nowPlaying)
     }
 
     private func reloadMovies() {
         moviesTableView.reloadData()
     }
 
+    private func configureHeaders(with headerText: String, and subHeaderText: String) {
+        DispatchQueue.main.async { [unowned self] in
+            self.headerTextLabel.text = headerText
+            self.subHeaderTextLabel.text = subHeaderText
+        }
+    }
+
+    private func scrollToTopOfTableView() {
+        DispatchQueue.main.async { [unowned self] in
+            self.moviesTableView.scrollToRow(at: IndexPath(row: 0, section: 0),
+                                             at: UITableViewScrollPosition.top,
+                                             animated: true)
+        }
+    }
+
     private func setUpMovieCategoryTabBar() {
         movieCategoryTabBar.delegate = self
         movieCategoryTabBar.selectedItem = movieCategoryTabBar.items?.first
-
-        headerTextLabel.text = "Now Playing"
-        subHeaderTextLabel.text = "Movies Out Currently"
     }
 
     private func setUpMoviesTableView() {
@@ -59,6 +71,7 @@ extension MoviesViewController: MoviesViewModelDelegate {
     func didRetrieveMovies() {
         DispatchQueue.main.async { [unowned self] in
             self.reloadMovies()
+            self.scrollToTopOfTableView()
         }
     }
 }
@@ -66,25 +79,23 @@ extension MoviesViewController: MoviesViewModelDelegate {
 // MARK: - UITabBarDelegate Protocol Conformance
 extension MoviesViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        DispatchQueue.main.async { [unowned self] in
-            guard let tabBarItemIndex = tabBar.items?.index(of: item) else { return }
+        guard let tabBarItemIndex = tabBar.items?.index(of: item) else { return }
 
-            switch tabBarItemIndex {
-            case 0:
-                self.headerTextLabel.text = "Now Playing"
-                self.subHeaderTextLabel.text = "Current Flicks"
-            case 1:
-                self.headerTextLabel.text = "Popular Movies"
-                self.subHeaderTextLabel.text = "In the Spotlight"
-            case 2:
-                self.headerTextLabel.text = "Top Rated"
-                self.subHeaderTextLabel.text = "Critically Acclaimed"
-            case 3:
-                self.headerTextLabel.text = "Upcoming"
-                self.subHeaderTextLabel.text = "Hitting Theaters Soon"
-            default:
-                return
-            }
+        switch tabBarItemIndex {
+        case 0:
+            configureHeaders(with: "Now Playing", and: "Current Flicks")
+            viewModel.getMovies(type: .nowPlaying)
+        case 1:
+            configureHeaders(with: "Popular Movies", and: "In the Spotlight")
+            viewModel.getMovies(type: .popular)
+        case 2:
+            configureHeaders(with: "Top Rated", and: "Critically Acclaimed")
+            viewModel.getMovies(type: .topRated)
+        case 3:
+            configureHeaders(with: "Upcoming", and: "Hitting Theaters Soon")
+            viewModel.getMovies(type: .upcoming)
+        default:
+            return
         }
     }
 }
