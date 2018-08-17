@@ -19,8 +19,8 @@ final class MoviesViewModel {
         self.movieService = movieService
     }
 
-    func getNowPlaying() {
-        movieService.getMovies(type: .nowPlaying) { [weak self] result in
+    func getMovies(type: MovieListType) {
+        movieService.getMovies(type: type) { [weak self] result in
             switch result {
             case .success(let movies):
                 self?.movies = movies
