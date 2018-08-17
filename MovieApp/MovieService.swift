@@ -39,7 +39,7 @@ final class MovieService {
                 let moviesResponse = try jsonDecoder.decode(MoviesResponse.self, from: data)
 
                 guard let movies = moviesResponse.results else {
-                    let userInfo: [String : Any] = [
+                    let userInfo: [String: Any] = [
                         NSLocalizedDescriptionKey: NSLocalizedString("No Movies", value: "Movies not found", comment: "")
                     ]
 
