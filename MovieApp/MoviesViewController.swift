@@ -20,14 +20,12 @@ final class MoviesViewController: UIViewController {
 
         viewModel.delegate = self
 
+        registerNibs()
+
         setUpMoviesTableView()
         setUpMovieCategoryTabBar()
 
         viewModel.getMovies(type: .nowPlaying)
-    }
-
-    private func reloadMovies() {
-        moviesTableView.reloadData()
     }
 
     private func configureHeaders(with headerText: String, and subHeaderText: String) {
@@ -35,6 +33,14 @@ final class MoviesViewController: UIViewController {
             self.headerTextLabel.text = headerText
             self.subHeaderTextLabel.text = subHeaderText
         }
+    }
+
+    private func reloadMovies() {
+        moviesTableView.reloadData()
+    }
+
+    private func registerNibs() {
+        moviesTableView.register(UINib(nibName: "MovieTableViewCell", bundle: nil), forCellReuseIdentifier: "MovieTableViewCell")
     }
 
     private func scrollToTopOfTableView() {
@@ -107,8 +113,11 @@ extension MoviesViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath)
-        cell.textLabel?.text = viewModel.movies[indexPath.row].title
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath) as! MovieTableViewCell
+
+        cell.movieTitleLabel.text = viewModel.movies[indexPath.row].title
+        cell.movieOverviewLabel.text = viewModel.movies[indexPath.row].overview
+//        cell.posterImageView
 
         return cell
     }
