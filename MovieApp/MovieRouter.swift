@@ -9,7 +9,7 @@ enum MovieRouter: EndpointRouter {
     var components: RequestComponents {
         switch self {
         case .getNowPlaying:
-            return (.get, "/movie/now_playing", nil)
+            return (.get, "/movie/now_playing")
         }
     }
 }
