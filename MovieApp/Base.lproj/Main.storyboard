@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dew-Cv-Ea1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -17,7 +17,24 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Awl-AK-eC4">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <tabBarItem title="Now Playing" id="ka8-oQ-Irq" userLabel="Now Playing"/>
+                                    <tabBarItem title="Popular" id="kVI-HO-tM7" userLabel="Popular"/>
+                                    <tabBarItem title="Top Rated" id="JVU-bv-Kch" userLabel="Top Rated"/>
+                                    <tabBarItem title="Upcoming" id="93O-VM-aEP" userLabel="Upcoming"/>
+                                </items>
+                            </tabBar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Awl-AK-eC4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Jvm-Jl-Zyf"/>
+                            <constraint firstItem="Awl-AK-eC4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fq7-At-pWT"/>
+                            <constraint firstItem="Awl-AK-eC4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wjY-8b-on9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="pwe-1O-AUr"/>
@@ -25,23 +42,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="XOF-YY-4y1">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="dew-Cv-Ea1" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WMz-5V-XI5">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Bgf-Ds-P72"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iNg-i6-r8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
