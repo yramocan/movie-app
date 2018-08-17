@@ -28,18 +28,46 @@
                                     <tabBarItem title="Upcoming" id="93O-VM-aEP" userLabel="Upcoming"/>
                                 </items>
                             </tabBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="whr-U8-sh1">
+                                <rect key="frame" x="0.0" y="143" width="375" height="475"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now Playing" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dLT-yj-WyY">
+                                <rect key="frame" x="16" y="44" width="343" height="38.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Out Currently" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9b8-al-bhF">
+                                <rect key="frame" x="16" y="86.5" width="343" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <color key="textColor" red="0.69803921570000005" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="dLT-yj-WyY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="0TD-3e-NmC"/>
+                            <constraint firstItem="whr-U8-sh1" firstAttribute="top" secondItem="9b8-al-bhF" secondAttribute="bottom" constant="27.5" id="1OM-QW-MFz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9b8-al-bhF" secondAttribute="trailing" constant="16" id="D1o-zt-bi1"/>
+                            <constraint firstItem="whr-U8-sh1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="H2M-1K-4H7"/>
                             <constraint firstItem="Awl-AK-eC4" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Jvm-Jl-Zyf"/>
+                            <constraint firstItem="dLT-yj-WyY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="KlS-Ke-qLA"/>
+                            <constraint firstItem="whr-U8-sh1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="NnP-0C-KNN"/>
+                            <constraint firstItem="Awl-AK-eC4" firstAttribute="top" secondItem="whr-U8-sh1" secondAttribute="bottom" id="Vdw-bN-Ekj"/>
+                            <constraint firstItem="9b8-al-bhF" firstAttribute="top" secondItem="dLT-yj-WyY" secondAttribute="bottom" constant="4" id="ax4-ca-vjJ"/>
                             <constraint firstItem="Awl-AK-eC4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fq7-At-pWT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dLT-yj-WyY" secondAttribute="trailing" constant="16" id="wgj-2s-mOS"/>
                             <constraint firstItem="Awl-AK-eC4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wjY-8b-on9"/>
+                            <constraint firstItem="9b8-al-bhF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="xOc-OD-Lu5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="pwe-1O-AUr"/>
                     <connections>
+                        <outlet property="headerTextLabel" destination="dLT-yj-WyY" id="U1N-zo-RJk"/>
                         <outlet property="movieCategoryTabBar" destination="Awl-AK-eC4" id="QII-UH-BGa"/>
+                        <outlet property="subHeaderTextLabel" destination="9b8-al-bhF" id="gBE-zm-8NG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
