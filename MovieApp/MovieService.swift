@@ -19,16 +19,16 @@ final class MovieService {
                 return
             }
 
-            guard let moviesResponse = try? JSONDecoder().decode(MoviesResponse.self, from: data) else {
-                let error = NSError(domain: "movieDB", code: -1, userInfo: nil)
+            do {
+                let jsonDecoder = JSONDecoder()
+                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+
+                let moviesResponse = try jsonDecoder.decode(MoviesResponse.self, from: data)
+
+                completion(.success(moviesResponse.results))
+            } catch let error {
                 completion(.failure(error))
-
-                return
             }
-
-            let movies = moviesResponse.results
-
-            completion(.success(movies))
         }
     }
 }
