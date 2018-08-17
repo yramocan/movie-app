@@ -7,7 +7,7 @@ protocol MoviesViewModelDelegate: AnyObject {
     func didRetrieveMovies()
 }
 
-struct MoviesViewModel {
+final class MoviesViewModel {
     weak var delegate: MoviesViewModelDelegate?
 
     var movies: [Movie]
@@ -19,10 +19,10 @@ struct MoviesViewModel {
     }
 
     func getNowPlaying() {
-        movieService.getNowPlaying { result in
+        movieService.getNowPlaying { [weak self] result in
             if case .success(let movies) = result {
-                self.movies = movies
-                delegate?.didRetrieveMovies()
+                self?.movies = movies
+                self?.delegate?.didRetrieveMovies()
             }
         }
     }
