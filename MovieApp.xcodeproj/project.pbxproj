@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B01B39D321269A9A0013C0DF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01B39D221269A9A0013C0DF /* UIColorExtension.swift */; };
 		B02B15D221264E3D00FDE97C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B15D121264E3D00FDE97C /* AppDelegate.swift */; };
 		B02B15D421264E3D00FDE97C /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02B15D321264E3D00FDE97C /* MoviesViewController.swift */; };
 		B02B15D721264E3D00FDE97C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02B15D521264E3D00FDE97C /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		49F0B8614C63B2159DD89A7A /* Pods-MovieApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MovieApp/Pods-MovieApp.release.xcconfig"; sourceTree = "<group>"; };
 		99BCC4B0A5E368C50CA24751 /* Pods_MovieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B01B39D221269A9A0013C0DF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		B02B15CE21264E3D00FDE97C /* MovieApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02B15D121264E3D00FDE97C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B02B15D321264E3D00FDE97C /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				B05032FE2126969400D407CD /* CALayerExtension.swift */,
+				B01B39D221269A9A0013C0DF /* UIColorExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				B0E0349221265B1A00ED36AA /* MovieService.swift in Sources */,
 				B0E0349421265D7A00ED36AA /* MoviesResponse.swift in Sources */,
 				B05032FF2126969400D407CD /* CALayerExtension.swift in Sources */,
+				B01B39D321269A9A0013C0DF /* UIColorExtension.swift in Sources */,
 				B05032FB21268F1200D407CD /* MovieTableViewCell.swift in Sources */,
 				B0E0349621265F6600ED36AA /* MoviesViewModel.swift in Sources */,
 			);
