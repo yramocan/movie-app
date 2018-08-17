@@ -4,6 +4,7 @@
 //
 
 protocol MoviesViewModelDelegate: AnyObject {
+    func didEncounterError(_ error: Error)
     func didRetrieveMovies()
 }
 
@@ -20,9 +21,12 @@ final class MoviesViewModel {
 
     func getNowPlaying() {
         movieService.getNowPlaying { [weak self] result in
-            if case .success(let movies) = result {
+            switch result {
+            case .success(let movies):
                 self?.movies = movies
                 self?.delegate?.didRetrieveMovies()
+            case .failure(let error):
+                self?.delegate?.didEncounterError(error)
             }
         }
     }
