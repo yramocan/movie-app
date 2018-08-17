@@ -18,10 +18,8 @@ final class ViewController: UIViewController {
 
 extension ViewController: MoviesViewModelDelegate {
     func didEncounterError(_ error: Error) {
-        print("Error")
-
         let alertController = UIAlertController(title: "MovieApp Error",
-                                                message: "Could not retrieve movies.",
+                                                message: error.localizedDescription,
                                                 preferredStyle: .alert)
 
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
