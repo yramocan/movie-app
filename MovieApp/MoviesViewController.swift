@@ -7,6 +7,7 @@ import UIKit
 
 final class MoviesViewController: UIViewController {
     // MARK: IBOutlets
+    @IBOutlet private var headerView: UIView!
     @IBOutlet private var headerTextLabel: UILabel!
     @IBOutlet private var subHeaderTextLabel: UILabel!
     @IBOutlet private var movieCategoryTabBar: UITabBar!
@@ -22,6 +23,8 @@ final class MoviesViewController: UIViewController {
 
         registerNibs()
 
+        configureHeaderView()
+
         setUpMoviesTableView()
         setUpMovieCategoryTabBar()
 
@@ -33,6 +36,10 @@ final class MoviesViewController: UIViewController {
             self.headerTextLabel.text = headerText
             self.subHeaderTextLabel.text = subHeaderText
         }
+    }
+
+    private func configureHeaderView() {
+        headerView.layer.addBorder(edge: .bottom, color: .purpleColor, thickness: 8.0)
     }
 
     private func reloadMovies() {

@@ -78,6 +78,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="pwe-1O-AUr"/>
                     <connections>
                         <outlet property="headerTextLabel" destination="dLT-yj-WyY" id="U1N-zo-RJk"/>
+                        <outlet property="headerView" destination="pwW-FP-h6d" id="hVE-Sv-lyr"/>
                         <outlet property="movieCategoryTabBar" destination="Awl-AK-eC4" id="QII-UH-BGa"/>
                         <outlet property="moviesTableView" destination="whr-U8-sh1" id="a9p-xN-DMw"/>
                         <outlet property="subHeaderTextLabel" destination="9b8-al-bhF" id="gBE-zm-8NG"/>
