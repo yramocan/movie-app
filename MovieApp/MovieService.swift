@@ -8,8 +8,21 @@ import Alamofire
 final class MovieService {
     static let shared = MovieService()
 
-    func getNowPlaying(completion: @escaping (MovieServiceResult<[Movie]>) -> Void) {
-        let request = Alamofire.request(MovieRouter.getNowPlaying)
+    func getMovies(type: MovieListType, completion: @escaping (MovieServiceResult<[Movie]>) -> Void) {
+        var urlRequestConvertible: URLRequestConvertible {
+            switch type {
+            case .nowPlaying:
+                return MovieRouter.getNowPlaying
+            case .popular:
+                return MovieRouter.getPopular
+            case .topRated:
+                return MovieRouter.getTopRated
+            case .upcoming:
+                return MovieRouter.getUpcoming
+            }
+        }
+
+        let request = Alamofire.request(urlRequestConvertible)
 
         request.responseData { response in
             guard let data = response.result.value else {
@@ -31,6 +44,10 @@ final class MovieService {
             }
         }
     }
+}
+
+enum MovieListType {
+    case nowPlaying, popular, topRated, upcoming
 }
 
 enum MovieServiceResult<T> {
