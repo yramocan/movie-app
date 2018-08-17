@@ -38,7 +38,18 @@ final class MovieService {
 
                 let moviesResponse = try jsonDecoder.decode(MoviesResponse.self, from: data)
 
-                completion(.success(moviesResponse.results))
+                guard let movies = moviesResponse.results else {
+                    let userInfo: [String : Any] = [
+                        NSLocalizedDescriptionKey: NSLocalizedString("No Movies", value: "Movies not found", comment: "")
+                    ]
+
+                    let error = NSError(domain: "movieDB", code: -1, userInfo: userInfo)
+                    completion(.failure(error))
+
+                    return
+                }
+
+                completion(.success(movies))
             } catch let error {
                 completion(.failure(error))
             }
