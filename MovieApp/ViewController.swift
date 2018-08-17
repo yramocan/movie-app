@@ -6,11 +6,16 @@
 import UIKit
 
 final class ViewController: UIViewController {
+    // MARK: IBOutlets
+    @IBOutlet private var movieCategoryTabBar: UITabBar!
+
+    // MARK: Properties
     private let viewModel = MoviesViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        movieCategoryTabBar.delegate = self
         viewModel.delegate = self
         viewModel.getNowPlaying()
     }
@@ -29,7 +34,28 @@ extension ViewController: MoviesViewModelDelegate {
     }
 
     func didRetrieveMovies() {
-        print("Success")
-        print("Movie Count: \(viewModel.movies.count)")
+        DispatchQueue.main.async { [unowned self] in
+            print("Success")
+            print("Movie Count: \(self.viewModel.movies.count)")
+        }
+    }
+}
+
+extension ViewController: UITabBarDelegate {
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        guard let tabBarItemIndex = tabBar.items?.index(of: item) else { return }
+
+        switch tabBarItemIndex {
+        case 0:
+            print("Now Playing")
+        case 1:
+            print("Popular")
+        case 2:
+            print("Top Rated")
+        case 3:
+            print("Upcoming")
+        default:
+            return
+        }
     }
 }
