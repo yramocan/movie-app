@@ -7,15 +7,19 @@ import SDWebImage
 import UIKit
 
 final class MoviesViewController: UIViewController {
-    // MARK: IBOutlets
+    // MARK: - IBOutlets
+
     @IBOutlet private var headerView: UIView!
     @IBOutlet private var headerTextLabel: UILabel!
     @IBOutlet private var subHeaderTextLabel: UILabel!
     @IBOutlet private var movieCategoryTabBar: UITabBar!
     @IBOutlet private var moviesTableView: UITableView!
 
-    // MARK: Properties
+    // MARK: - Properties
+
     private let viewModel = MoviesViewModel()
+
+    // MARK: - View Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +35,8 @@ final class MoviesViewController: UIViewController {
 
         viewModel.getMovies(type: .nowPlaying)
     }
+
+    // MARK: - Helper Methods
 
     private func configureHeaderLabels(with headerText: String, and subHeaderText: String) {
         DispatchQueue.main.async { [unowned self] in
@@ -73,6 +79,7 @@ final class MoviesViewController: UIViewController {
 }
 
 // MARK: - MoviesViewModelDelegate Protocol Conformance
+
 extension MoviesViewController: MoviesViewModelDelegate {
     func didEncounterError(_ error: Error) {
         let alertController = UIAlertController(title: "MovieApp Error",
@@ -94,6 +101,7 @@ extension MoviesViewController: MoviesViewModelDelegate {
 }
 
 // MARK: - UITabBarDelegate Protocol Conformance
+
 extension MoviesViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         guard let tabBarItemIndex = tabBar.items?.index(of: item) else { return }
@@ -122,6 +130,7 @@ extension MoviesViewController: UITabBarDelegate {
 }
 
 // MARK: - UITableViewDataSource Protocol Conformance
+
 extension MoviesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.movies.count
