@@ -58,6 +58,7 @@ final class MoviesViewController: UIViewController {
 
     private func setUpMoviesTableView() {
         moviesTableView.dataSource = self
+        moviesTableView.delegate = self
     }
 }
 
@@ -120,5 +121,11 @@ extension MoviesViewController: UITableViewDataSource {
 //        cell.posterImageView
 
         return cell
+    }
+}
+
+extension MoviesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200.00
     }
 }
