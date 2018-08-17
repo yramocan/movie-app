@@ -1,22 +1,35 @@
 PODS:
   - Alamofire (4.7.2)
+  - Mockingjay (2.0.1):
+    - Mockingjay/Core (= 2.0.1)
+    - Mockingjay/XCTest (= 2.0.1)
+  - Mockingjay/Core (2.0.1):
+    - URITemplate (~> 2.0)
+  - Mockingjay/XCTest (2.0.1):
+    - Mockingjay/Core
   - SDWebImage (4.4.1):
     - SDWebImage/Core (= 4.4.1)
   - SDWebImage/Core (4.4.1)
+  - URITemplate (2.0.3)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - Mockingjay (~> 2.0)
   - SDWebImage (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Mockingjay
     - SDWebImage
+    - URITemplate
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Mockingjay: 11a621880d2887f1775bdcf824341eb68f218450
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
+  URITemplate: ace0c4c46dcf8afe6e89b4060621852886b15c3b
 
-PODFILE CHECKSUM: b896f05bc261c3e80a0d0e0c22154f8cae1dfaa0
+PODFILE CHECKSUM: c9c5139a22eb7d0a885d97dee2101c0902053c3c
 
 COCOAPODS: 1.5.3

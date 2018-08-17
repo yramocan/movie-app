@@ -5,4 +5,8 @@ target 'MovieApp' do
 
   pod 'Alamofire', '~> 4.7'
   pod 'SDWebImage', '~> 4.0'
+
+  target 'MovieAppTests' do
+    pod 'Mockingjay', '~> 2.0'
+  end
 end
