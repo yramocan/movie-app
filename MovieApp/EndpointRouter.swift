@@ -16,7 +16,7 @@ extension EndpointRouter {
         let url = try "https://api.themoviedb.org/3".asURL()
 
         // TODO: Enter your API key for TheMovieDB
-        let apiKey = 
+        let apiKey = ""
 
         var urlRequest = URLRequest(url: url.appendingPathComponent(components.path + "?api_key=" + apiKey))
 
