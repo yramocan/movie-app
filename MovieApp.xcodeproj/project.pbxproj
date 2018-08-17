@@ -94,8 +94,8 @@
 		B02B15D021264E3D00FDE97C /* MovieApp */ = {
 			isa = PBXGroup;
 			children = (
-				B05032FD2126968500D407CD /* Extensions */,
 				B02B15D121264E3D00FDE97C /* AppDelegate.swift */,
+				B05032FD2126968500D407CD /* Extensions */,
 				B0E03487212653A100ED36AA /* Networking */,
 				B0E03489212653C000ED36AA /* Storyboards */,
 				B0E03488212653AB00ED36AA /* Supporting Files */,
