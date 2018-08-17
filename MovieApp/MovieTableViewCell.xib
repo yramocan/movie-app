@@ -26,16 +26,16 @@
                             <constraint firstAttribute="width" constant="110" id="tFS-oQ-i9O"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Longer Movie Title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acy-iK-6uU">
-                        <rect key="frame" x="138" y="16" width="182" height="20.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="A Longer Movie Title: Part Two" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acy-iK-6uU">
+                        <rect key="frame" x="138" y="16" width="174" height="41"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GA-B6-jWv">
-                        <rect key="frame" x="138" y="44.5" width="166" height="129"/>
-                        <string key="text">From DC Comics comes the Suicide Squad, an antihero team of incarcerated supervillains who act as deniable assets for the United States government, undertaking high-risk black ops missions in exchange for commuted prison sentences.</string>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4GA-B6-jWv">
+                        <rect key="frame" x="138" y="64.5" width="166" height="119"/>
+                        <string key="text">Most movies have a plot, but get this—this one doesn't! Find the closest theater and come along for the ride! There are tons of laughs, jumps, and scares with no substance at all! You're guaranteed to be befuddled!</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.69803921570000005" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -43,9 +43,10 @@
                 <constraints>
                     <constraint firstItem="4GA-B6-jWv" firstAttribute="top" secondItem="Acy-iK-6uU" secondAttribute="bottom" constant="8" id="4g6-Y0-xPL"/>
                     <constraint firstItem="Acy-iK-6uU" firstAttribute="leading" secondItem="HkN-gM-Dnu" secondAttribute="trailing" constant="12" id="9En-r7-BWu"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4GA-B6-jWv" secondAttribute="bottom" constant="16" id="EwD-AV-pTM"/>
                     <constraint firstItem="HkN-gM-Dnu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="R4r-NK-Xbi"/>
                     <constraint firstItem="4GA-B6-jWv" firstAttribute="leading" secondItem="Acy-iK-6uU" secondAttribute="leading" id="TeO-K1-onU"/>
-                    <constraint firstItem="Acy-iK-6uU" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="16" id="fh7-9p-v5y"/>
+                    <constraint firstItem="Acy-iK-6uU" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" constant="8" id="fh7-9p-v5y"/>
                     <constraint firstItem="HkN-gM-Dnu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="iYi-gc-BG1"/>
                     <constraint firstAttribute="trailing" secondItem="4GA-B6-jWv" secondAttribute="trailing" constant="16" id="ldt-ro-1Jp"/>
                     <constraint firstAttribute="bottom" secondItem="HkN-gM-Dnu" secondAttribute="bottom" constant="16" id="sLy-qv-4Y7"/>
