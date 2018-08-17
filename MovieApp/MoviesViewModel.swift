@@ -10,7 +10,7 @@ protocol MoviesViewModelDelegate: AnyObject {
 final class MoviesViewModel {
     weak var delegate: MoviesViewModelDelegate?
 
-    var movies: [Movie]
+    var movies: [Movie] = []
 
     private let movieService: MovieService
 
