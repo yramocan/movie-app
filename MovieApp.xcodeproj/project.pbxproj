@@ -12,6 +12,7 @@
 		B02B15D721264E3D00FDE97C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02B15D521264E3D00FDE97C /* Main.storyboard */; };
 		B02B15D921264E3E00FDE97C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02B15D821264E3E00FDE97C /* Assets.xcassets */; };
 		B02B15DC21264E3E00FDE97C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02B15DA21264E3E00FDE97C /* LaunchScreen.storyboard */; };
+		B0E0348C212654D100ED36AA /* EndpointRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E0348B212654D100ED36AA /* EndpointRouter.swift */; };
 		BFE27740423435B52E602C97 /* Pods_MovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BCC4B0A5E368C50CA24751 /* Pods_MovieApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		B02B15DB21264E3E00FDE97C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B02B15DD21264E3E00FDE97C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B053B4D780E72052C80EFEBB /* Pods-MovieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieApp/Pods-MovieApp.debug.xcconfig"; sourceTree = "<group>"; };
+		B0E0348B212654D100ED36AA /* EndpointRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +81,62 @@
 			isa = PBXGroup;
 			children = (
 				B02B15D121264E3D00FDE97C /* AppDelegate.swift */,
-				B02B15D321264E3D00FDE97C /* ViewController.swift */,
-				B02B15D521264E3D00FDE97C /* Main.storyboard */,
-				B02B15D821264E3E00FDE97C /* Assets.xcassets */,
-				B02B15DA21264E3E00FDE97C /* LaunchScreen.storyboard */,
-				B02B15DD21264E3E00FDE97C /* Info.plist */,
+				B0E03487212653A100ED36AA /* Networking */,
+				B0E03489212653C000ED36AA /* Storyboards */,
+				B0E03488212653AB00ED36AA /* Supporting Files */,
+				B0E034852126525E00ED36AA /* View Controllers */,
+				B0E034862126539A00ED36AA /* View Models */,
 			);
 			path = MovieApp;
+			sourceTree = "<group>";
+		};
+		B0E034852126525E00ED36AA /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B02B15D321264E3D00FDE97C /* ViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B0E034862126539A00ED36AA /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "View Models";
+			sourceTree = "<group>";
+		};
+		B0E03487212653A100ED36AA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				B0E0348A2126547600ED36AA /* Response Models */,
+				B0E0348B212654D100ED36AA /* EndpointRouter.swift */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		B0E03488212653AB00ED36AA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B02B15D821264E3E00FDE97C /* Assets.xcassets */,
+				B02B15DD21264E3E00FDE97C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B0E03489212653C000ED36AA /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B02B15DA21264E3E00FDE97C /* LaunchScreen.storyboard */,
+				B02B15D521264E3D00FDE97C /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		B0E0348A2126547600ED36AA /* Response Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Response Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +253,7 @@
 			files = (
 				B02B15D421264E3D00FDE97C /* ViewController.swift in Sources */,
 				B02B15D221264E3D00FDE97C /* AppDelegate.swift in Sources */,
+				B0E0348C212654D100ED36AA /* EndpointRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
