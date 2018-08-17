@@ -22,10 +22,10 @@
                                 <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <tabBarItem title="Now Playing" id="ka8-oQ-Irq" userLabel="Now Playing"/>
-                                    <tabBarItem title="Popular" id="kVI-HO-tM7" userLabel="Popular"/>
-                                    <tabBarItem title="Top Rated" id="JVU-bv-Kch" userLabel="Top Rated"/>
-                                    <tabBarItem title="Upcoming" id="93O-VM-aEP" userLabel="Upcoming"/>
+                                    <tabBarItem title="Now Playing" image="circled_play" id="ka8-oQ-Irq" userLabel="Now Playing"/>
+                                    <tabBarItem title="Popular" image="people" id="kVI-HO-tM7" userLabel="Popular"/>
+                                    <tabBarItem title="Top Rated" image="following" id="JVU-bv-Kch" userLabel="Top Rated"/>
+                                    <tabBarItem title="Upcoming" image="rocket" id="93O-VM-aEP" userLabel="Upcoming"/>
                                 </items>
                             </tabBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pwW-FP-h6d">
@@ -89,4 +89,10 @@
             <point key="canvasLocation" x="1076" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="circled_play" width="30" height="30"/>
+        <image name="following" width="30" height="30"/>
+        <image name="people" width="30" height="30"/>
+        <image name="rocket" width="30" height="30"/>
+    </resources>
 </document>
