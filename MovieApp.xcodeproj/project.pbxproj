@@ -13,6 +13,7 @@
 		B02B15D921264E3E00FDE97C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B02B15D821264E3E00FDE97C /* Assets.xcassets */; };
 		B02B15DC21264E3E00FDE97C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B02B15DA21264E3E00FDE97C /* LaunchScreen.storyboard */; };
 		B0E0348C212654D100ED36AA /* EndpointRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E0348B212654D100ED36AA /* EndpointRouter.swift */; };
+		B0E0348E212658A800ED36AA /* MovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E0348D212658A800ED36AA /* MovieRouter.swift */; };
 		BFE27740423435B52E602C97 /* Pods_MovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BCC4B0A5E368C50CA24751 /* Pods_MovieApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		B02B15DD21264E3E00FDE97C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B053B4D780E72052C80EFEBB /* Pods-MovieApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MovieApp/Pods-MovieApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B0E0348B212654D100ED36AA /* EndpointRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointRouter.swift; sourceTree = "<group>"; };
+		B0E0348D212658A800ED36AA /* MovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				B0E0348A2126547600ED36AA /* Response Models */,
-				B0E0348B212654D100ED36AA /* EndpointRouter.swift */,
+				B0E0348F21265AFF00ED36AA /* Routers */,
+				B0E0349021265B0800ED36AA /* Services */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -137,6 +140,15 @@
 			children = (
 			);
 			name = "Response Models";
+			sourceTree = "<group>";
+		};
+		B0E0348F21265AFF00ED36AA /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				B0E0348B212654D100ED36AA /* EndpointRouter.swift */,
+				B0E0348D212658A800ED36AA /* MovieRouter.swift */,
+			);
+			name = Routers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B02B15D421264E3D00FDE97C /* ViewController.swift in Sources */,
+				B0E0348E212658A800ED36AA /* MovieRouter.swift in Sources */,
 				B02B15D221264E3D00FDE97C /* AppDelegate.swift in Sources */,
 				B0E0348C212654D100ED36AA /* EndpointRouter.swift in Sources */,
 			);

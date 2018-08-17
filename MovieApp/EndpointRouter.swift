@@ -15,7 +15,10 @@ extension EndpointRouter {
     func asURLRequest() throws -> URLRequest {
         let url = try "https://api.themoviedb.org/3".asURL()
 
-        var urlRequest = URLRequest(url: url.appendingPathComponent(components.path))
+        // TODO: Enter your API key for TheMovieDB
+        let apiKey = 
+
+        var urlRequest = URLRequest(url: url.appendingPathComponent(components.path + "?api_key=" + apiKey))
 
         urlRequest.httpMethod = components.method.rawValue
         urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
