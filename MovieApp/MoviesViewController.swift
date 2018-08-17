@@ -1,11 +1,11 @@
 //
-//  ViewController.swift
+//  MoviesViewController.swift
 //  MovieApp
 //
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class MoviesViewController: UIViewController {
     // MARK: IBOutlets
     @IBOutlet private var movieCategoryTabBar: UITabBar!
 
@@ -21,7 +21,7 @@ final class ViewController: UIViewController {
     }
 }
 
-extension ViewController: MoviesViewModelDelegate {
+extension MoviesViewController: MoviesViewModelDelegate {
     func didEncounterError(_ error: Error) {
         let alertController = UIAlertController(title: "MovieApp Error",
                                                 message: error.localizedDescription,
@@ -41,7 +41,7 @@ extension ViewController: MoviesViewModelDelegate {
     }
 }
 
-extension ViewController: UITabBarDelegate {
+extension MoviesViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         guard let tabBarItemIndex = tabBar.items?.index(of: item) else { return }
 
