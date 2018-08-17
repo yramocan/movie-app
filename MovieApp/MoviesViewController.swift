@@ -10,6 +10,7 @@ final class MoviesViewController: UIViewController {
     @IBOutlet private var headerTextLabel: UILabel!
     @IBOutlet private var subHeaderTextLabel: UILabel!
     @IBOutlet private var movieCategoryTabBar: UITabBar!
+    @IBOutlet private var moviesTableView: UITableView!
 
     // MARK: Properties
     private let viewModel = MoviesViewModel()

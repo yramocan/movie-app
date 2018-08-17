@@ -67,6 +67,7 @@
                     <connections>
                         <outlet property="headerTextLabel" destination="dLT-yj-WyY" id="U1N-zo-RJk"/>
                         <outlet property="movieCategoryTabBar" destination="Awl-AK-eC4" id="QII-UH-BGa"/>
+                        <outlet property="moviesTableView" destination="whr-U8-sh1" id="a9p-xN-DMw"/>
                         <outlet property="subHeaderTextLabel" destination="9b8-al-bhF" id="gBE-zm-8NG"/>
                     </connections>
                 </viewController>
