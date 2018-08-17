@@ -20,9 +20,14 @@ final class MoviesViewController: UIViewController {
 
         viewModel.delegate = self
 
+        setUpMoviesTableView()
         setUpMovieCategoryTabBar()
 
         viewModel.getNowPlaying()
+    }
+
+    private func reloadMovies() {
+        moviesTableView.reloadData()
     }
 
     private func setUpMovieCategoryTabBar() {
@@ -32,8 +37,13 @@ final class MoviesViewController: UIViewController {
         headerTextLabel.text = "Now Playing"
         subHeaderTextLabel.text = "Movies Out Currently"
     }
+
+    private func setUpMoviesTableView() {
+        moviesTableView.dataSource = self
+    }
 }
 
+// MARK: - MoviesViewModelDelegate Protocol Conformance
 extension MoviesViewController: MoviesViewModelDelegate {
     func didEncounterError(_ error: Error) {
         let alertController = UIAlertController(title: "MovieApp Error",
@@ -48,12 +58,12 @@ extension MoviesViewController: MoviesViewModelDelegate {
 
     func didRetrieveMovies() {
         DispatchQueue.main.async { [unowned self] in
-            print("Success")
-            print("Movie Count: \(self.viewModel.movies.count)")
+            self.reloadMovies()
         }
     }
 }
 
+// MARK: - UITabBarDelegate Protocol Conformance
 extension MoviesViewController: UITabBarDelegate {
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         DispatchQueue.main.async { [unowned self] in
@@ -76,5 +86,19 @@ extension MoviesViewController: UITabBarDelegate {
                 return
             }
         }
+    }
+}
+
+// MARK: - UITableViewDataSource Protocol Conformance
+extension MoviesViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.movies.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieTableViewCell", for: indexPath)
+        cell.textLabel?.text = viewModel.movies[indexPath.row].title
+
+        return cell
     }
 }
