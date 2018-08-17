@@ -64,6 +64,7 @@ final class MoviesViewController: UIViewController {
     private func setUpMovieCategoryTabBar() {
         movieCategoryTabBar.delegate = self
         movieCategoryTabBar.selectedItem = movieCategoryTabBar.items?.first
+        movieCategoryTabBar.layoutIfNeeded()
     }
 
     private func setUpMoviesTableView() {
