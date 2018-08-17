@@ -28,27 +28,25 @@ final class MoviesViewController: UIViewController {
 
         registerNibs()
 
+        viewModel.getMovies(type: .nowPlaying)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         configureHeaderView(with: .moviePurpleColor)
 
         setUpMoviesTableView()
         setUpMovieCategoryTabBar()
-
-        viewModel.getMovies(type: .nowPlaying)
     }
 
     // MARK: - Helper Methods
 
     private func configureHeaderLabels(with headerText: String, and subHeaderText: String) {
-        DispatchQueue.main.async { [unowned self] in
-            self.headerTextLabel.text = headerText
-            self.subHeaderTextLabel.text = subHeaderText
-        }
+        self.headerTextLabel.text = headerText
+        self.subHeaderTextLabel.text = subHeaderText
     }
 
     private func configureHeaderView(with borderColor: UIColor) {
-        DispatchQueue.main.async { [unowned self] in
-            self.headerView.layer.addBorder(edge: .bottom, color: borderColor, thickness: 8.0)
-        }
+        self.headerView.layer.addBorder(edge: .bottom, color: borderColor, thickness: 8.0)
     }
 
     private func reloadMovies() {
@@ -60,11 +58,9 @@ final class MoviesViewController: UIViewController {
     }
 
     private func scrollToTopOfTableView() {
-        DispatchQueue.main.async { [unowned self] in
-            self.moviesTableView.scrollToRow(at: IndexPath(row: 0, section: 0),
-                                             at: UITableViewScrollPosition.top,
-                                             animated: true)
-        }
+        self.moviesTableView.scrollToRow(at: IndexPath(row: 0, section: 0),
+                                         at: UITableViewScrollPosition.top,
+                                         animated: true)
     }
 
     private func setUpMovieCategoryTabBar() {
@@ -82,14 +78,16 @@ final class MoviesViewController: UIViewController {
 
 extension MoviesViewController: MoviesViewModelDelegate {
     func didEncounterError(_ error: Error) {
-        let alertController = UIAlertController(title: "MovieApp Error",
-                                                message: error.localizedDescription,
-                                                preferredStyle: .alert)
+        DispatchQueue.main.async {
+            let alertController = UIAlertController(title: "MovieApp Error",
+                                                    message: error.localizedDescription,
+                                                    preferredStyle: .alert)
 
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(okAction)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
 
-        self.present(alertController, animated: true, completion: nil)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 
     func didRetrieveMovies() {
@@ -113,11 +111,11 @@ extension MoviesViewController: UITabBarDelegate {
             viewModel.getMovies(type: .nowPlaying)
         case 1:
             configureHeaderLabels(with: "Popular Movies", and: "In the Spotlight")
-            configureHeaderView(with: .movieRedColor)
+            configureHeaderView(with: .movieGreenColor)
             viewModel.getMovies(type: .popular)
         case 2:
             configureHeaderLabels(with: "Top Rated", and: "Critically Acclaimed")
-            configureHeaderView(with: .movieGreenColor)
+            configureHeaderView(with: .movieRedColor)
             viewModel.getMovies(type: .topRated)
         case 3:
             configureHeaderLabels(with: "Upcoming", and: "Hitting Theaters Soon")
