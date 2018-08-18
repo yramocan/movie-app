@@ -40,7 +40,7 @@ final class MoviesViewController: UIViewController {
 
     // MARK: - Helper Methods
 
-    private func configureHeaderLabels(with headerText: String, and subHeaderText: String) {
+    private func configureHeaderLabels(headerText: String, subHeaderText: String) {
         self.headerTextLabel.text = headerText
         self.subHeaderTextLabel.text = subHeaderText
     }
@@ -58,9 +58,7 @@ final class MoviesViewController: UIViewController {
     }
 
     private func scrollToTopOfTableView() {
-        self.moviesTableView.scrollToRow(at: IndexPath(row: 0, section: 0),
-                                         at: UITableViewScrollPosition.top,
-                                         animated: true)
+        self.moviesTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
     }
 
     private func setUpMovieCategoryTabBar() {
@@ -79,9 +77,7 @@ final class MoviesViewController: UIViewController {
 extension MoviesViewController: MoviesViewModelDelegate {
     func didEncounterError(_ error: Error) {
         DispatchQueue.main.async {
-            let alertController = UIAlertController(title: "MovieApp Error",
-                                                    message: error.localizedDescription,
-                                                    preferredStyle: .alert)
+            let alertController = UIAlertController(title: "MovieApp Error", message: error.localizedDescription, preferredStyle: .alert)
 
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(okAction)
@@ -106,19 +102,19 @@ extension MoviesViewController: UITabBarDelegate {
 
         switch tabBarItemIndex {
         case 0:
-            configureHeaderLabels(with: "Now Playing", and: "Current Flicks")
+            configureHeaderLabels(headerText: "Now Playing", subHeaderText: "Current Flicks")
             configureHeaderView(with: .moviePurpleColor)
             viewModel.getMovies(type: .nowPlaying)
         case 1:
-            configureHeaderLabels(with: "Popular Movies", and: "In the Spotlight")
+            configureHeaderLabels(headerText: "Popular Movies", subHeaderText: "In the Spotlight")
             configureHeaderView(with: .movieGreenColor)
             viewModel.getMovies(type: .popular)
         case 2:
-            configureHeaderLabels(with: "Top Rated", and: "Critically Acclaimed")
+            configureHeaderLabels(headerText: "Top Rated", subHeaderText: "Critically Acclaimed")
             configureHeaderView(with: .movieRedColor)
             viewModel.getMovies(type: .topRated)
         case 3:
-            configureHeaderLabels(with: "Upcoming", and: "Hitting Theaters Soon")
+            configureHeaderLabels(headerText: "Upcoming", subHeaderText: "Hitting Theaters Soon")
             configureHeaderView(with: .movieOrangeColor)
             viewModel.getMovies(type: .upcoming)
         default:
